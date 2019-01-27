@@ -56,6 +56,9 @@ public class FPSMove : MonoBehaviour
                     if (rb.useGravity == true) {
                         rb.useGravity = false;
                     }
+                    if (rb.isKinematic == true) {
+                        rb.isKinematic = false;
+                    }
                 }
             }
         }
