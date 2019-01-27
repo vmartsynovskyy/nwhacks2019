@@ -108,6 +108,24 @@ public class FPSMove : MonoBehaviour
 				}
 				// if both, do neither
 			}
+
+			bool up = Input.GetKey("up"); // up arrow
+			bool down = Input.GetKey("down"); // down arrow
+
+			if (up || down) // if either arrow
+			{
+				// why "!up" instead of "down"?
+				// it's if both are pressed - then it will skip both
+				if (!up) // down is pressed, pull object
+				{
+					grabbedDistance *= 0.98f;
+				}
+				if (!down) // up is pressed, push object
+				{
+					grabbedDistance *= 1.02f;
+				}
+				// if both, do neither
+			}
 		}
 
         if (axes == RotationAxes.MouseXAndY)
