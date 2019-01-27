@@ -1,0 +1,400 @@
+fileFormatVersion: 2
+guid: a074796ec62695049894534569945f0d
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 0000000001000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 5330959b5c19d4a82fe8b5d8c9a71b19
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: -15.146326, y: 20.186367, z: -30.890625}
+      lookAt: {x: -7.126426, y: 7.429554, z: -8.720884}
+      up: {x: 0.16188858, y: 0.87950104, z: 0.44751537}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes:
+    - camera:
+        position: {x: -19.414616, y: 5.7783556, z: -3.6166327}
+        lookAt: {x: 1.328824, y: -2.8413024, z: 6.583892}
+        up: {x: 0.31353173, y: 0.93697757, z: 0.15417829}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Blanco
+    - camera:
+        position: {x: -10.817243, y: 10.464189, z: -5.0039816}
+        lookAt: {x: 4.1914597, y: -4.273022, z: 7.887603}
+        up: {x: 0.45314577, y: 0.8019742, z: 0.38922533}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Terrein
+    - camera:
+        position: {x: -10.817243, y: 10.464189, z: -5.0039816}
+        lookAt: {x: 4.1914597, y: -4.273022, z: 7.887603}
+        up: {x: 0.45314577, y: 0.8019742, z: 0.38922533}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Scene 3
+    - camera:
+        position: {x: -10.726812, y: 7.8628774, z: 1.3340671}
+        lookAt: {x: 8.072952, y: -6.1766315, z: 8.956434}
+        up: {x: 0.5273788, y: 0.8222835, z: 0.2138258}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Begangr. vloer
+    - camera:
+        position: {x: -10.335863, y: 9.360994, z: -1.083507}
+        lookAt: {x: 7.0184336, y: -4.510198, z: 9.642996}
+        up: {x: 0.47827134, y: 0.82696354, z: 0.29561433}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Binnenwanden
+    - camera:
+        position: {x: -13.417778, y: 8.883089, z: -4.0050592}
+        lookAt: {x: 4.6732345, y: -1.9239777, z: 8.823115}
+        up: {x: 0.35733512, y: 0.8989486, z: 0.25338316}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Plafond beg. gr.
+    - camera:
+        position: {x: -14.565848, y: 7.870102, z: 0.58660406}
+        lookAt: {x: 3.5251632, y: -2.9369643, z: 13.41478}
+        up: {x: 0.35733512, y: 0.8989486, z: 0.25338316}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Wanden garage
+    - camera:
+        position: {x: -10.405504, y: 8.245548, z: 5.6821084}
+        lookAt: {x: 7.5446525, y: -6.7047844, z: 13.614249}
+        up: {x: 0.5542901, y: 0.7954666, z: 0.24493974}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Garagedak
+    - camera:
+        position: {x: -11.220111, y: 8.339752, z: 1.6638254}
+        lookAt: {x: 8.427743, y: -3.0494418, z: 11.301643}
+        up: {x: 0.41447085, y: 0.88706213, z: 0.20330946}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Verdiepingsvkoer
+    - camera:
+        position: {x: 0.6396349, y: 6.762581, z: 0.06210654}
+        lookAt: {x: 9.612733, y: -8.050855, z: 17.631544}
+        up: {x: 0.27310577, y: 0.7996635, z: 0.5347445}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Trap
+    - camera:
+        position: {x: -4.6799307, y: 9.185322, z: 11.560019}
+        lookAt: {x: 14.368594, y: -2.9209259, z: 1.5984975}
+        up: {x: 0.43484366, y: 0.87132007, z: -0.22740366}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Verdioepingswanden
+    - camera:
+        position: {x: -10.622658, y: 8.393659, z: 12.799457}
+        lookAt: {x: 11.485606, y: 0.32082573, z: 5.4039536}
+        up: {x: 0.3103225, y: 0.9449466, z: -0.103806935}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Knieschotten
+    - camera:
+        position: {x: -5.7762094, y: 7.423672, z: 15.790537}
+        lookAt: {x: 12.417819, y: -1.5438923, z: 1.7477617}
+        up: {x: 0.28774977, y: 0.9315975, z: -0.22209516}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Goten
+    - camera:
+        position: {x: -4.8909664, y: 11.029491, z: 8.343144}
+        lookAt: {x: 14.402143, y: -3.953485, z: 4.8897696}
+        up: {x: 0.5978193, y: 0.79445684, z: -0.10700681}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Drukbaken
+    - camera:
+        position: {x: -5.5544033, y: 13.44277, z: 7.1433516}
+        lookAt: {x: 12.950301, y: -2.8678916, z: 6.721858}
+        up: {x: 0.6609657, y: 0.75026506, z: -0.015055248}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Drukbalken
+    - camera:
+        position: {x: -5.130958, y: 6.1975427, z: -7.04245}
+        lookAt: {x: 8.822696, y: -1.5649927, z: 11.763881}
+        up: {x: 0.18748635, y: 0.9492088, z: 0.25268868}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Buitenwanden
+    - camera:
+        position: {x: -9.618471, y: 10.163598, z: -4.6601133}
+        lookAt: {x: 6.1336274, y: 0.25144768, z: 11.534334}
+        up: {x: 0.2801404, y: 0.91573644, z: 0.28800726}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Dak
+    - camera:
+        position: {x: -11.573608, y: 5.94239, z: -10.919741}
+        lookAt: {x: 2.0961616, y: 1.8246783, z: 9.200431}
+        up: {x: 0.0937977, y: 0.9859726, z: 0.13805835}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Dakpannen
+    - camera:
+        position: {x: -4.178716, y: 4.313431, z: -15.329918}
+        lookAt: {x: 4.334131, y: 3.1364362, z: 10.060999}
+        up: {x: 0.013957571, y: 0.9990356, z: 0.04163067}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Kompleet
+    - camera:
+        position: {x: -4.178716, y: 4.313431, z: -15.329918}
+        lookAt: {x: 4.334131, y: 3.1364362, z: 10.060999}
+        up: {x: 0.013957571, y: 0.9990356, z: 0.04163067}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Blanko
+    - camera:
+        position: {x: 3.1107378, y: 3.470125, z: -21.758236}
+        lookAt: {x: 3.1107378, y: 3.470125, z: 6.84}
+        up: {x: 0, y: 1, z: 0}
+        fov: 45
+        aspectRatio: 0
+        orthoSize: 391.2246
+        isPerspective: 0
+      name: Voor
+    - camera:
+        position: {x: 31.859947, y: 3.470125, z: 6.84}
+        lookAt: {x: 3.2613142, y: 3.470125, z: 6.84}
+        up: {x: 0, y: 1, z: 0}
+        fov: 45
+        aspectRatio: 0
+        orthoSize: 391.2246
+        isPerspective: 0
+      name: Rechts
+    - camera:
+        position: {x: 3.1107378, y: 3.470125, z: 35.438236}
+        lookAt: {x: 3.1107378, y: 3.470125, z: 6.84}
+        up: {x: 0, y: 1, z: 0}
+        fov: 45
+        aspectRatio: 0
+        orthoSize: 391.2246
+        isPerspective: 0
+      name: Achter
+    - camera:
+        position: {x: -25.337317, y: 3.470125, z: 6.84}
+        lookAt: {x: 3.2613142, y: 3.470125, z: 6.84}
+        up: {x: 0, y: 1, z: 0}
+        fov: 45
+        aspectRatio: 0
+        orthoSize: 391.2246
+        isPerspective: 0
+      name: Links
+    - camera:
+        position: {x: 2.4634507, y: 29.981253, z: 4.4640155}
+        lookAt: {x: 2.4634507, y: 3.470125, z: 4.4640155}
+        up: {x: 0, y: 0, z: 1}
+        fov: 45
+        aspectRatio: 0
+        orthoSize: 754.7622
+        isPerspective: 0
+      name: Boven
+    - camera:
+        position: {x: -8.381325, y: 3.9572413, z: -6.912234}
+        lookAt: {x: 4.7458353, y: 3.8496172, z: 6.349181}
+        up: {x: 0.004057514, y: 0.9999834, z: 0.0040990114}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Kasco
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2100000: _defaultMat
+    2100002: '[Wood_Plywood_Knots]'
+    2100004: Asphalt_Old2
+    2100006: _13
+    2100008: '[Grass Dark Green]'
+    2100010: '[Wood Bamboo]'
+    2100012: _6
+    2100014: _5
+    2100016: _11
+    2100018: '[Color E08]'
+    2100020: '[Color_001]'
+    2100022: _LightGray_
+    2100024: '[Wood_Cherry_Original]'
+    2100026: 1391824_592180347508254_449364876_n
+    2100028: '[Brick_Rough_Dark]'
+    2100030: PlywoodNew0057_5_thumbhuge
+    2100032: _2
+    2100034: '[Color M09]'
+    2100036: wb_nl_KOR-nale745-dv_STUCCO_black-urltexturemain
+    2100038: '[Color_002]'
+    2100040: _Beige_1
+    2100042: _7
+    2100044: '[0060_GrassGreen]'
+    2100046: _3
+    2100048: '[Wood_OSB]'
+    2100050: '[Color_B22]'
+    2100052: '[Wood Floor]'
+    2100054: '[Blinds Roman Hobbled Blue]'
+    2100056: '[Metal_Aluminum_Anodized]'
+    2100058: '[Color M03]'
+    2100060: _12
+    2100062: '[Formica Graystone]'
+    2100064: _4
+    2100066: '[Color M05]'
+    2100068: '[Stone Masonry Multi]'
+    2100070: '[Brick Tumbled]'
+    2100072: '[Brick Rough Dark]'
+    2100074: '[Concrete Block 8x8 Gray]'
+    2100076: 999642_610759432317012_43815663_n
+    2100078: _1
+    2100080: '[Color_C10]'
+    2100082: _9
+    2100084: _10
+    2100086: 1234046_592180180841604_787182161_n
+    2100088: black
+    2100090: '[Color_009]'
+    2100092: _Brown_
+    2100094: '[Metal_Corrogated_Shiny]15'
+    2100096: YS_softline1
+    2100098: Groenen
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Mesh fancy_house2
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
