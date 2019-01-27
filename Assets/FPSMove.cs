@@ -24,7 +24,7 @@ public class FPSMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -147,11 +147,11 @@ public class FPSMove : MonoBehaviour
 			// it's if both are pressed - then it will skip both
 			if (!left) // right is pressed, rotate "right"
 			{
-				grabbedObject.transform.Rotate(Vector3.up * Time.deltaTime * moveSpeed * 360);
+				grabbedObject.transform.Rotate(Vector3.up * Time.deltaTime * moveSpeed * 90);
 			}
 			if (!right) // left is pressed, rotate "left"
 			{
-				grabbedObject.transform.Rotate(Vector3.down * Time.deltaTime * moveSpeed * 360);
+				grabbedObject.transform.Rotate(Vector3.down * Time.deltaTime * moveSpeed * 90);
 			}
 			// if both, do neither
 		}
@@ -163,7 +163,7 @@ public class FPSMove : MonoBehaviour
 		Vector3 desiredPositionDiff = desiredPosition - grabbedObject.transform.position;
 		Vector3 clampledDiff = Vector3.ClampMagnitude(desiredPositionDiff, Time.deltaTime * 3);
 		Vector3 preCollision = grabbedObject.transform.position + clampledDiff;
-		preCollision.y = Mathf.Max(0.5f, preCollision.y);
+		preCollision.y = Mathf.Max(0.25f, preCollision.y);
 		grabbedObject.transform.position = preCollision;
 
 		if (Input.GetKey("f"))
