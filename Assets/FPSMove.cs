@@ -48,51 +48,53 @@ public class FPSMove : MonoBehaviour
 		}
 
 		if (Input.GetKeyDown("g")) {
-            RaycastHit hit;  
-            bool didHit = Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity);
-            if (didHit)
+			if (isObjectGrabbed == false)
 			{
-				grabbedObject = hit.transform.gameObject;
-				if (grabbedObject.layer == LAYER_GRABBABLE)
+				RaycastHit hit;
+				bool didHit = Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity);
+				if (didHit)
 				{
-					isObjectGrabbed = true;
-					grabbedDistance = hit.distance;
-					Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
-					if (rb != null)
+					grabbedObject = hit.transform.gameObject;
+					if (grabbedObject.layer == LAYER_GRABBABLE)
 					{
-						if (rb.useGravity == true)
+						isObjectGrabbed = true;
+						grabbedDistance = hit.distance;
+						Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
+						if (rb != null)
 						{
-							rb.useGravity = false;
-						}
-						if (rb.isKinematic == true)
-						{
-							rb.isKinematic = false;
+							if (rb.useGravity == true)
+							{
+								rb.useGravity = false;
+							}
+							if (rb.isKinematic == true)
+							{
+								rb.isKinematic = false;
+							}
 						}
 					}
 				}
-            }
+			} else
+			{
+				isObjectGrabbed = false;
+				Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
+				if (rb != null)
+				{
+					rb.useGravity = true;
+				}
+			}
         }
-
-        if (Input.GetKeyUp("g") && isObjectGrabbed) {
-            isObjectGrabbed = false;
-            Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
-            if (rb != null) {
-                rb.useGravity = true;
-            }
-        }
-
-        if (Input.GetKey("g") && isObjectGrabbed) {
-            Vector3 desiredPosition = this.transform.position + this.transform.forward*grabbedDistance;
-            Vector3 desiredPositionDiff = desiredPosition - grabbedObject.transform.position;   
-            Vector3 clampledDiff = Vector3.ClampMagnitude(desiredPositionDiff, Time.deltaTime*3);
-            Vector3 preCollision = grabbedObject.transform.position + clampledDiff;
-            preCollision.y = Mathf.Max(0.5f, preCollision.y);;
-
-            grabbedObject.transform.position = preCollision;
-        }
-
+		
 		if (isObjectGrabbed)
 		{
+			// object following player
+			Vector3 desiredPosition = this.transform.position + this.transform.forward * grabbedDistance;
+			Vector3 desiredPositionDiff = desiredPosition - grabbedObject.transform.position;
+			Vector3 clampledDiff = Vector3.ClampMagnitude(desiredPositionDiff, Time.deltaTime * 3);
+			Vector3 preCollision = grabbedObject.transform.position + clampledDiff;
+			preCollision.y = Mathf.Max(0.5f, preCollision.y);
+			grabbedObject.transform.position = preCollision;
+
+			// object rotation
 			bool left = Input.GetKey("left"); // left arrow
 			bool right = Input.GetKey("right"); // right arrow
 
@@ -111,6 +113,7 @@ public class FPSMove : MonoBehaviour
 				// if both, do neither
 			}
 
+			// object push and pull
 			bool up = Input.GetKey("up"); // up arrow
 			bool down = Input.GetKey("down"); // down arrow
 
