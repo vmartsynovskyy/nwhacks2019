@@ -6,6 +6,7 @@ public class FPSMove : MonoBehaviour
 {
     public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
     public RotationAxes axes = RotationAxes.MouseXAndY;
+	public const int LAYER_GRABBABLE = 9;
     public float sensitivity = 15F;
     private float minimumX = -360F;
     private float maximumX = 360F;
@@ -13,7 +14,7 @@ public class FPSMove : MonoBehaviour
     private float maximumY = 60F;
     public float moveSpeed = 1F;
 
-    private bool isObjectGrabbed = true;
+    private bool isObjectGrabbed = false;
     private float grabbedDistance = 0F;
     private GameObject grabbedObject;
 
@@ -47,23 +48,30 @@ public class FPSMove : MonoBehaviour
         if (Input.GetKeyDown("g")) {
             RaycastHit hit;  
             bool didHit = Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity);
-            if (didHit) {
-                isObjectGrabbed = true;
-                grabbedDistance = hit.distance;
-                grabbedObject = hit.transform.gameObject;
-                Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
-                if (rb != null) {
-                    if (rb.useGravity == true) {
-                        rb.useGravity = false;
-                    }
-                    if (rb.isKinematic == true) {
-                        rb.isKinematic = false;
-                    }
-                }
+            if (didHit)
+			{
+				grabbedObject = hit.transform.gameObject;
+				if (grabbedObject.layer == LAYER_GRABBABLE)
+				{
+					isObjectGrabbed = true;
+					grabbedDistance = hit.distance;
+					Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
+					if (rb != null)
+					{
+						if (rb.useGravity == true)
+						{
+							rb.useGravity = false;
+						}
+						if (rb.isKinematic == true)
+						{
+							rb.isKinematic = false;
+						}
+					}
+				}
             }
         }
 
-        if (Input.GetKeyUp("g")) {
+        if (Input.GetKeyUp("g") && isObjectGrabbed) {
             isObjectGrabbed = false;
             Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
             if (rb != null) {
@@ -71,7 +79,7 @@ public class FPSMove : MonoBehaviour
             }
         }
 
-        if (Input.GetKey("g")) {
+        if (Input.GetKey("g") && isObjectGrabbed) {
             Vector3 desiredPosition = this.transform.position + this.transform.forward*grabbedDistance;
             Vector3 desiredPositionDiff = desiredPosition - grabbedObject.transform.position;   
             Vector3 clampledDiff = Vector3.ClampMagnitude(desiredPositionDiff, Time.deltaTime*3);
