@@ -50,90 +50,31 @@ public class FPSMove : MonoBehaviour
 		if (Input.GetKeyDown("g")) {
 			if (isObjectGrabbed == false)
 			{
-				RaycastHit hit;
-				bool didHit = Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity);
-				if (didHit)
-				{
-					grabbedObject = hit.transform.gameObject;
-					if (grabbedObject.layer == LAYER_GRABBABLE)
-					{
-						isObjectGrabbed = true;
-						grabbedDistance = hit.distance;
-						Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
-						if (rb != null)
-						{
-							if (rb.useGravity == true)
-							{
-								rb.useGravity = false;
-							}
-							if (rb.isKinematic == true)
-							{
-								rb.isKinematic = false;
-							}
-						}
-					}
-				}
-			} else
-			{
-				isObjectGrabbed = false;
-				Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
-				if (rb != null)
-				{
-					rb.useGravity = true;
-				}
+				grabObject();
 			}
-        }
+			else
+			{
+				releaseObject();
+			}
+		}
 		
 		if (isObjectGrabbed)
 		{
 			// object following player
-			Vector3 desiredPosition = this.transform.position + this.transform.forward * grabbedDistance;
-			Vector3 desiredPositionDiff = desiredPosition - grabbedObject.transform.position;
-			Vector3 clampledDiff = Vector3.ClampMagnitude(desiredPositionDiff, Time.deltaTime * 3);
-			Vector3 preCollision = grabbedObject.transform.position + clampledDiff;
-			preCollision.y = Mathf.Max(0.5f, preCollision.y);
-			grabbedObject.transform.position = preCollision;
+			objectFollowPlayer();
 
 			// object rotation
 			bool left = Input.GetKey("left"); // left arrow
 			bool right = Input.GetKey("right"); // right arrow
-
-			if (left || right) // if either arrow
-			{
-				// why "!left" instead of "right"?
-				// it's if both are pressed - then it will skip both
-				if (!left) // right is pressed, rotate "right"
-				{
-					grabbedObject.transform.Rotate(Vector3.up * Time.deltaTime * moveSpeed * 360);
-				}
-				if (!right) // left is pressed, rotate "left"
-				{
-					grabbedObject.transform.Rotate(Vector3.down * Time.deltaTime * moveSpeed * 360);
-				}
-				// if both, do neither
-			}
+			objectRotate(left, right);
 
 			// object push and pull
 			bool up = Input.GetKey("up"); // up arrow
 			bool down = Input.GetKey("down"); // down arrow
-
-			if (up || down) // if either arrow
-			{
-				// why "!up" instead of "down"?
-				// it's if both are pressed - then it will skip both
-				if (!up) // down is pressed, pull object
-				{
-					grabbedDistance *= 0.98f;
-				}
-				if (!down) // up is pressed, push object
-				{
-					grabbedDistance *= 1.02f;
-				}
-				// if both, do neither
-			}
+			objectPushPull(up, down);
 		}
 
-        if (axes == RotationAxes.MouseXAndY)
+		if (axes == RotationAxes.MouseXAndY)
         {
             float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity;
             
@@ -154,6 +95,89 @@ public class FPSMove : MonoBehaviour
             transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
         }
     }
+
+	private void objectPushPull(bool up, bool down)
+	{
+		if (up || down) // if either arrow
+		{
+			// why "!up" instead of "down"?
+			// it's if both are pressed - then it will skip both
+			if (!up) // down is pressed, pull object
+			{
+				grabbedDistance *= 0.98f;
+			}
+			if (!down) // up is pressed, push object
+			{
+				grabbedDistance *= 1.02f;
+			}
+			// if both, do neither
+		}
+	}
+
+	private void objectRotate(bool left, bool right)
+	{
+		if (left || right) // if either arrow
+		{
+			// why "!left" instead of "right"?
+			// it's if both are pressed - then it will skip both
+			if (!left) // right is pressed, rotate "right"
+			{
+				grabbedObject.transform.Rotate(Vector3.up * Time.deltaTime * moveSpeed * 360);
+			}
+			if (!right) // left is pressed, rotate "left"
+			{
+				grabbedObject.transform.Rotate(Vector3.down * Time.deltaTime * moveSpeed * 360);
+			}
+			// if both, do neither
+		}
+	}
+
+	private void objectFollowPlayer()
+	{
+		Vector3 desiredPosition = transform.position + transform.forward * grabbedDistance;
+		Vector3 desiredPositionDiff = desiredPosition - grabbedObject.transform.position;
+		Vector3 clampledDiff = Vector3.ClampMagnitude(desiredPositionDiff, Time.deltaTime * 3);
+		Vector3 preCollision = grabbedObject.transform.position + clampledDiff;
+		preCollision.y = Mathf.Max(0.5f, preCollision.y);
+		grabbedObject.transform.position = preCollision;
+	}
+
+	private void releaseObject()
+	{
+		isObjectGrabbed = false;
+		Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
+		if (rb != null)
+		{
+			rb.useGravity = true;
+		}
+	}
+
+	private void grabObject()
+	{
+		RaycastHit hit;
+		bool didHit = Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity);
+		if (didHit)
+		{
+			grabbedObject = hit.transform.gameObject;
+			if (grabbedObject.layer == LAYER_GRABBABLE)
+			{
+				isObjectGrabbed = true;
+				grabbedDistance = hit.distance;
+				Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
+				if (rb != null)
+				{
+					if (rb.useGravity == true)
+					{
+						rb.useGravity = false;
+					}
+					if (rb.isKinematic == true)
+					{
+						rb.isKinematic = false;
+					}
+				}
+			}
+		}
+	}
 
 	private void moveRight()
 	{
