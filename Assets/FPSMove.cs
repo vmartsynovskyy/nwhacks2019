@@ -29,6 +29,13 @@ public class FPSMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		// detect oculus remote
+		string[] joystickNames = Input.GetJoystickNames();
+		// if oculus remote detected
+		if (joystickNames.Length > 0 && joystickNames[0] == "Oculus Remote")
+		{
+			// TODO: handle remote controls
+		}
 
         if (Input.GetKey("w"))
 		{
