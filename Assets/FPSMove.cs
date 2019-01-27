@@ -147,6 +147,12 @@ public class FPSMove : MonoBehaviour
 		Vector3 preCollision = grabbedObject.transform.position + clampledDiff;
 		preCollision.y = Mathf.Max(0.5f, preCollision.y);
 		grabbedObject.transform.position = preCollision;
+
+		if (Input.GetKey("f"))
+		{
+			isObjectGrabbed = false;
+			Destroy(grabbedObject);
+		}
 	}
 
 	private void releaseObject()
