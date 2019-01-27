@@ -17,6 +17,7 @@ public class FPSMove : MonoBehaviour
     private bool isObjectGrabbed = false;
     private float grabbedDistance = 0F;
     private GameObject grabbedObject;
+	public GameObject chair;
 
 
     float rotationY = 0F;
@@ -79,6 +80,17 @@ public class FPSMove : MonoBehaviour
 			bool up = Input.GetKey("up"); // up arrow
 			bool down = Input.GetKey("down"); // down arrow
 			objectPushPull(up, down);
+		}
+
+		if (Input.GetKeyDown("k") && !isObjectGrabbed)
+		{
+			GameObject clone;
+			clone = Instantiate(chair, new Vector3(-10f, 1, 1.2f), Quaternion.identity);
+			clone.AddComponent<Rigidbody>();
+			clone.AddComponent<BoxCollider>();
+			clone.layer = LAYER_GRABBABLE;
+
+
 		}
 
 		if (axes == RotationAxes.MouseXAndY)
