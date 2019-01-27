@@ -29,29 +29,25 @@ public class FPSMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		CharacterController controller = GetComponent<CharacterController>();
 
-        if (Input.GetKey("w")) {
-			Vector3 forward = transform.TransformDirection(Vector3.forward);
-			controller.SimpleMove(forward * moveSpeed);
-		}
-        if (Input.GetKey("s"))
+        if (Input.GetKey("w"))
 		{
-			Vector3 back = transform.TransformDirection(Vector3.back);
-			controller.SimpleMove(back * moveSpeed);
+			moveForward();
 		}
-        if (Input.GetKey("a"))
+		if (Input.GetKey("s"))
 		{
-			Vector3 left = transform.TransformDirection(Vector3.left);
-			controller.SimpleMove(left * moveSpeed);
+			moveBackward();
 		}
-        if (Input.GetKey("d"))
+		if (Input.GetKey("a"))
 		{
-			Vector3 right = transform.TransformDirection(Vector3.right);
-			controller.SimpleMove(right * moveSpeed);
+			moveLeft();
+		}
+		if (Input.GetKey("d"))
+		{
+			moveRight();
 		}
 
-        if (Input.GetKeyDown("g")) {
+		if (Input.GetKeyDown("g")) {
             RaycastHit hit;  
             bool didHit = Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity);
             if (didHit)
@@ -155,4 +151,32 @@ public class FPSMove : MonoBehaviour
             transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
         }
     }
+
+	private void moveRight()
+	{
+		CharacterController controller = GetComponent<CharacterController>();
+		Vector3 right = transform.TransformDirection(Vector3.right);
+		controller.SimpleMove(right * moveSpeed);
+	}
+
+	private void moveLeft()
+	{
+		CharacterController controller = GetComponent<CharacterController>();
+		Vector3 left = transform.TransformDirection(Vector3.left);
+		controller.SimpleMove(left * moveSpeed);
+	}
+
+	private void moveBackward()
+	{
+		CharacterController controller = GetComponent<CharacterController>();
+		Vector3 back = transform.TransformDirection(Vector3.back);
+		controller.SimpleMove(back * moveSpeed);
+	}
+
+	private void moveForward()
+	{
+		CharacterController controller = GetComponent<CharacterController>();
+		Vector3 forward = transform.TransformDirection(Vector3.forward);
+		controller.SimpleMove(forward * moveSpeed);
+	}
 }
