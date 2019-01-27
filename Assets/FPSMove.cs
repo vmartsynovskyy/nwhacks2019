@@ -81,6 +81,27 @@ public class FPSMove : MonoBehaviour
             grabbedObject.transform.position = preCollision;
         }
 
+		if (isObjectGrabbed)
+		{
+			bool left = Input.GetKey("left"); // left arrow
+			bool right = Input.GetKey("right"); // right arrow
+
+			if (left || right) // if either arrow
+			{
+				// why "!left" instead of "right"?
+				// it's if both are pressed - then it will skip both
+				if (!left) // right is pressed, rotate "right"
+				{
+					grabbedObject.transform.Rotate(Vector3.up * Time.deltaTime * moveSpeed * 360);
+				}
+				if (!right) // left is pressed, rotate "left"
+				{
+					grabbedObject.transform.Rotate(Vector3.down * Time.deltaTime * moveSpeed * 360);
+				}
+				// if both, do neither
+			}
+		}
+
         if (axes == RotationAxes.MouseXAndY)
         {
             float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity;
