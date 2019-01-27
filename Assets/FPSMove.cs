@@ -38,7 +38,7 @@ public class FPSMove : MonoBehaviour
 			// TODO: handle remote controls
 		}
 
-        if (Input.GetKey("w"))
+		if (Input.GetKey("w"))
 		{
 			moveForward();
 		}
@@ -84,12 +84,18 @@ public class FPSMove : MonoBehaviour
 
 		if (Input.GetKeyDown("k") && !isObjectGrabbed)
 		{
+			Vector3 location = new Vector3(-10f, 1, 1.2f);
+			RaycastHit hit;
+			bool didHit = Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity);
+			if (didHit)
+			{
+				location = hit.point;
+			}
 			GameObject clone;
-			clone = Instantiate(chair, new Vector3(-10f, 1, 1.2f), Quaternion.identity);
-			clone.AddComponent<Rigidbody>();
-			clone.AddComponent<BoxCollider>();
+			clone = Instantiate(chair, location, Quaternion.identity);
+			clone.AddComponent<Rigidbody>().freezeRotation = true;
+			clone.AddComponent<MeshCollider>().convex = true;
 			clone.layer = LAYER_GRABBABLE;
-
 
 		}
 
