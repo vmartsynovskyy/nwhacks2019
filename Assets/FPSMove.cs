@@ -29,21 +29,27 @@ public class FPSMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		CharacterController controller = GetComponent<CharacterController>();
+
         if (Input.GetKey("w")) {
-            transform.Translate(0, 0, Time.deltaTime*moveSpeed);
-        }
-        if (Input.GetKey("s")) {
-            transform.Translate(0, 0, -Time.deltaTime*moveSpeed);
-        }
-        if (Input.GetKey("a")) {
-            transform.Translate(-Time.deltaTime*moveSpeed, 0, 0);
-        }
-        if (Input.GetKey("d")) {
-            transform.Translate(Time.deltaTime*moveSpeed, 0, 0);
-        }
-        if (Input.GetKey("space")) {
-            transform.Translate(0, Time.deltaTime*moveSpeed, 0);
-        }
+			Vector3 forward = transform.TransformDirection(Vector3.forward);
+			controller.SimpleMove(forward * moveSpeed);
+		}
+        if (Input.GetKey("s"))
+		{
+			Vector3 back = transform.TransformDirection(Vector3.back);
+			controller.SimpleMove(back * moveSpeed);
+		}
+        if (Input.GetKey("a"))
+		{
+			Vector3 left = transform.TransformDirection(Vector3.left);
+			controller.SimpleMove(left * moveSpeed);
+		}
+        if (Input.GetKey("d"))
+		{
+			Vector3 right = transform.TransformDirection(Vector3.right);
+			controller.SimpleMove(right * moveSpeed);
+		}
 
         if (Input.GetKeyDown("g")) {
             RaycastHit hit;  
